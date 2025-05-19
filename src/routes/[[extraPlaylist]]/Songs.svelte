@@ -15,12 +15,12 @@
 				: ''}"
 		>
 			<img
-				class="aspect-square w-[60px] rounded object-cover xl:w-[100px]"
+				class="aspect-square w-[80px] rounded object-cover"
 				src={song.snippet?.thumbnails?.medium?.url}
 				alt=""
 			/>
-			<div>
-				<div>{song.snippet?.title}</div>
+			<div class="flex flex-col justify-center">
+				<div class="lg:text-xl">{song.snippet?.title}</div>
 				<div class="text-xs">{song.album.snippet?.title}</div>
 			</div>
 		</button>

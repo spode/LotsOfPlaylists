@@ -73,20 +73,20 @@
 </script>
 
 <main
-	class="mx-auto flex h-full max-w-6xl flex-col overflow-auto lg:flex-row xl:grid xl:grid-cols-3 xl:grid-rows-2"
+	class=" mx-auto flex h-full max-w-6xl flex-col overflow-auto lg:flex-row xl:grid xl:grid-cols-3 xl:grid-rows-2"
 >
-	<div class="selectableAlbumsContainer flex flex-1 flex-col">
-		<h2 class="text-center">albums</h2>
+	<div class="selectableAlbumsWrapper flex flex-1 flex-col overflow-auto">
+		<h2 class="text-center lg:text-lg">albums</h2>
 		<SelectableAlbums {selectableAlbums} {toggleActiveAlbum} />
 	</div>
 
-	<div class="selectedAlbumsContainer flex flex-1 flex-col">
-		<h2 class="text-center">active</h2>
+	<div class="selectedAlbumsWrapper flex flex-1 flex-col overflow-auto">
+		<h2 class="text-center lg:text-lg">active</h2>
 		<Albums {selectedAlbums} {toggleActiveAlbum} />
 	</div>
 
-	<div class="songsContainer flex flex-1 flex-col">
-		<h2 class="text-center">songs</h2>
+	<div class="songsWrapper flex flex-1 flex-col overflow-auto">
+		<h2 class="text-center lg:text-lg">songs</h2>
 		<Songs {songs} {player} bind:currentSong />
 	</div>
 	<div class=" flex-1 xl:col-span-3">
