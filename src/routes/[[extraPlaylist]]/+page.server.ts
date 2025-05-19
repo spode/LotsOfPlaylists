@@ -1,0 +1,26 @@
+import { CHANNELS } from '$env/static/private';
+import { getChannelPlaylistsWithItems, fart } from '$lib/server/ytapi';
+import { shuffle } from '$lib/utils';
+import type { PageServerLoad } from './$types';
+
+let channelIds = CHANNELS.split(",")
+
+// let channelPlaylists = await Promise.all(channelIds.map(async element => {
+//     return await getChannelPlaylists(element)
+// }));
+
+let channelPlaylists = (await Promise.all(channelIds.map(async element => {
+    return await getChannelPlaylistsWithItems(element)
+}))).flat();
+
+
+
+
+export const load = (async ({ params }) => {
+
+    let extraPlaylistId = params.extraPlaylist ?? "PL4iv3Q3xc0skeScJ7XEZoK73INblR0mQA"
+
+    const extraPlaylist = await fart(extraPlaylistId)
+
+    return { channelPlaylists: [extraPlaylist, ...shuffle(channelPlaylists)] };
+}) satisfies PageServerLoad;

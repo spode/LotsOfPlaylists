@@ -1,0 +1,26 @@
+@import 'tailwindcss';
+
+html,
+body {
+    @apply dark:bg-none bg-linear-to-b from-lime-300 to-white dark:text-white text-xl dark:bg-gray-950 h-full overflow-auto dark:scheme-dark
+}
+
+body {
+    scrollbar-color: var(--color-lime-400) var(--color-lime-100);
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        scrollbar-color: var(--color-gray-500) var(--color-gray-900);
+    }
+}
+
+@layer components {
+
+    .bgstyled {
+        background-color: #ffda99;
+        background-image:
+            radial-gradient(at 16% 13%, hsla(155, 74%, 60%, 1) 0px, transparent 50%),
+            radial-gradient(at 19% 14%, hsla(202, 78%, 61%, 1) 0px, transparent 50%);
+    }
+}
