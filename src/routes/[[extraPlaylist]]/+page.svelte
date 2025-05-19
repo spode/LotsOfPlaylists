@@ -3,23 +3,15 @@
 	import type { PageData } from './$types';
 	import Player from './Player.svelte';
 	import { shuffle } from '$lib/utils';
-	import { onMount } from 'svelte';
 
 	import type { CustomAlbum, CustomSong } from '$lib/myinterfaces';
 	import Albums from './Albums.svelte';
 	import Songs from './Songs.svelte';
 	import SelectableAlbums from './SelectableAlbums.svelte';
-	onMount(() => {
-		console.log('data is ', data);
-	});
 
 	let { data }: { data: PageData } = $props();
 
 	let activeAlbums = new SvelteSet<CustomAlbum>();
-
-	let farts = 'hellop';
-
-	console.log(farts);
 
 	let allSongs: CustomSong[] = $derived(
 		Array.from(activeAlbums)
