@@ -7,5 +7,5 @@
 {@render children()}
 
 <svelte:head>
-	<title>All the Albums!</title>
+	<title>Lots of Playlists!</title>
 </svelte:head>
