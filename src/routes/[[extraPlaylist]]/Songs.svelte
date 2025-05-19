@@ -6,7 +6,6 @@
 	{#each songs as song}
 		<button
 			onclick={(e) => {
-				// console.log(song);
 				currentSong = song;
 				player.loadVideoById(currentSong.id);
 			}}

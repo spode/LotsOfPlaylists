@@ -23,7 +23,6 @@ export async function getPlaylistDetails(playlistId: string) {
         }
 
         const playlistThing = await youtubeAPI.playlists.list(playlistParams);
-        console.log(playlistThing);
 
         return playlistThing.data
     } catch (error) {

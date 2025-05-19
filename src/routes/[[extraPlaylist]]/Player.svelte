@@ -35,7 +35,6 @@
 <svelte:window
 	onmessage={(event) => {
 		var data = JSON.parse(event.data);
-		// console.log('BEANS', data.info);
 
 		// if (event.source === iframe.contentWindow) {
 		// 	if (data.event === 'infoDelivery' && data.info && data.info.volume) {
