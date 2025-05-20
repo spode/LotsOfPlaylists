@@ -133,11 +133,10 @@ export async function getChannelPlaylistsWithItems(channelId) {
     return await Promise.all(playlistItemsPromises);
 }
 
-export async function fart(playlistId) {
+export async function getPlaylistWithVideos(playlistId: string) {
 
     const playlistDetails = await getPlaylistDetails(playlistId);
 
-    // Fetch the playlist items after the delay
     const items = await getPlaylistItems(playlistId);
 
     let videos = await Promise.all(items.map(async element => {
@@ -148,18 +147,13 @@ export async function fart(playlistId) {
 
     videos = videos.flat()
 
-    // Attach the playlist to each item
     const itemsWithPlaylist = videos.map(item => ({
-        ...item, // spread the item properties
-        album: playlistDetails?.items[0], // add the playlist object to each item
+        ...item,
+        album: playlistDetails?.items[0],
     }));
-
-
 
     return {
         ...playlistDetails?.items[0],
         songs: itemsWithPlaylist
     }
-
-
 }
