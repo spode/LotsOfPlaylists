@@ -1,7 +1,6 @@
 import { CHANNELS } from '$env/static/private';
 import { getChannelPlaylistsWithItems, getPlaylistWithVideos } from '$lib/server/ytapi';
 import { shuffle } from '$lib/utils';
-import type { PageServerLoad } from './$types';
 
 let channelIds = CHANNELS.split(",")
 
@@ -16,4 +15,4 @@ export const load = (async ({ params }) => {
     const extraPlaylist = await getPlaylistWithVideos(extraPlaylistId)
 
     return { channelPlaylists: [extraPlaylist, ...shuffle(channelPlaylists)] };
-}) satisfies PageServerLoad;
+})
