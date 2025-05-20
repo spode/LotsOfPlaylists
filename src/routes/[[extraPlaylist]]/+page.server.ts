@@ -5,16 +5,9 @@ import type { PageServerLoad } from './$types';
 
 let channelIds = CHANNELS.split(",")
 
-// let channelPlaylists = await Promise.all(channelIds.map(async element => {
-//     return await getChannelPlaylists(element)
-// }));
-
 let channelPlaylists = (await Promise.all(channelIds.map(async element => {
     return await getChannelPlaylistsWithItems(element)
 }))).flat();
-
-
-
 
 export const load = (async ({ params }) => {
 

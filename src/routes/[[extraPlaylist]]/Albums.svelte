@@ -1,11 +1,11 @@
 <script>
-	let { selectedAlbums, toggleActiveAlbum } = $props();
+	let { albums, toggleActiveAlbum } = $props();
 </script>
 
 <div
-	class="selectedAlbums grid grid-cols-[repeat(auto-fit,_minmax(100px,_1fr))] content-start gap-1 overflow-auto"
+	class="albums grid grid-cols-[repeat(auto-fit,_minmax(100px,_1fr))] content-start gap-1 overflow-auto"
 >
-	{#each selectedAlbums as album}
+	{#each albums as album}
 		<button
 			onclick={() => {
 				toggleActiveAlbum(album);

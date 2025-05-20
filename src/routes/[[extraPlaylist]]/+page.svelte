@@ -1,15 +1,13 @@
 <script lang="ts">
 	import { SvelteSet } from 'svelte/reactivity';
-	import type { PageData } from './$types';
 	import Player from './Player.svelte';
 	import { shuffle } from '$lib/utils';
 
 	import type { CustomAlbum, CustomSong } from '$lib/myinterfaces';
 	import Albums from './Albums.svelte';
 	import Songs from './Songs.svelte';
-	import SelectableAlbums from './SelectableAlbums.svelte';
 
-	let { data }: { data: PageData } = $props();
+	let { data } = $props();
 
 	let activeAlbums = new SvelteSet<CustomAlbum>();
 
@@ -69,12 +67,12 @@
 >
 	<div class="selectableAlbumsWrapper flex flex-1 flex-col overflow-auto">
 		<h2 class="text-center lg:text-lg">albums</h2>
-		<SelectableAlbums {selectableAlbums} {toggleActiveAlbum} />
+		<Albums albums={selectableAlbums} {toggleActiveAlbum} />
 	</div>
 
 	<div class="selectedAlbumsWrapper flex flex-1 flex-col overflow-auto">
 		<h2 class="text-center lg:text-lg">active</h2>
-		<Albums {selectedAlbums} {toggleActiveAlbum} />
+		<Albums albums={selectedAlbums} {toggleActiveAlbum} />
 	</div>
 
 	<div class="songsWrapper flex flex-1 flex-col overflow-auto">
